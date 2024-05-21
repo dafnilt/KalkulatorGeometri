@@ -11,105 +11,126 @@
 #include "LuasBangunDatar.h"
 
 
+#include "LuasBangunDatar.h"
+
 void MenuKalkulator() {
     char loop = 'y';
-    float sisi;
-    float panjang, lebar;
-    float radius;
-    float alas, tinggi;
-    float sisiSejajar1, sisiSejajar2;
-    float diagonal1, diagonal2;
+    int pilihanGeometri, pilihanOperasi;
+    float sisi, panjang, lebar, radius, alas, tinggi, sisiSejajar1, sisiSejajar2, diagonal1, diagonal2;
 
     BinTree expTree;
     String postfix, input, hasil, in;
     
-    system("cls");
-    showIntruction();
-    system("\nPAUSE");
-
     while (loop == 'Y' || loop == 'y') {
-        
-        printf("Pilih operasi:\n");
-        printf("1. Hitung luas persegi\n");
-        printf("2. Hitung luas persegi panjang\n");
-        printf("3. Hitung luas lingkaran\n");
-        printf("4. Hitung luas segitiga\n");
-        printf("5. Hitung luas jajargenjang\n");
-        printf("6. Hitung luas trapesium\n");
-        printf("7. Hitung luas layang-layang\n");
-        printf("8. Hitung luas belah ketupat\n");
-        printf("9. Operasi kalkulator lainnya\n");
+        system("cls");
+        printf("Pilih menu:\n");
+        printf("1. Kalkulator Geometri\n");
+        printf("2. Kalkulator Umum\n");
         printf("Pilihan: ");
-        int pilihan;
-        scanf("%d", &pilihan);
+        scanf("%d", &pilihanGeometri);
 
-        switch (pilihan) {
-            case 1:
-                sisi = getSisiFromUser();
-                calculateAndDisplayLuasPersegi(sisi);
-                break;
-            case 2:
-                panjang = getPanjangFromUser();
-                lebar = getLebarFromUser();
-                calculateAndDisplayLuasPersegiPanjang(panjang, lebar);
-                break;
-            case 3:
-                radius = getRadiusFromUser();
-                calculateAndDisplayLuasLingkaran(radius);
-                break;
-            case 4:
-                alas = getAlasFromUser();
-                tinggi = getTinggiFromUser();
-                calculateAndDisplayLuasSegitiga(alas, tinggi);
-                break;
-            case 5:
-                alas = getAlasFromUser();
-                tinggi = getTinggiFromUser();
-                calculateAndDisplayLuasJajargenjang(alas, tinggi);
-                break;
-            case 6:
-                sisiSejajar1 = getSisiSejajar1FromUser();
-                sisiSejajar2 = getSisiSejajar2FromUser();
-                tinggi = getTinggiFromUser();
-                calculateAndDisplayLuasTrapesium(sisiSejajar1, sisiSejajar2, tinggi);
-                break;
-            case 7:
-                diagonal1 = getDiagonal1FromUser();
-                diagonal2 = getDiagonal2FromUser();
-                calculateAndDisplayLuasLayangLayang(diagonal1, diagonal2);
-                break;
-            case 8:
-                diagonal1 = getDiagonal1FromUser();
-                diagonal2 = getDiagonal2FromUser();
-                calculateAndDisplayLuasBelahKetupat(diagonal1, diagonal2);
-                break;
-            case 9:
+        if (pilihanGeometri == 1) {
+            system("cls");
+            printf("Pilih jenis operasi:\n");
+            printf("1. Luas Bangun Datar\n");
+            printf("2. Keliling Bangun Datar\n");
+            printf("3. Volume Bangun Ruang\n");
+            printf("4. Luas Permukaan Bangun Ruang\n");
+            printf("Pilihan: ");
+            scanf("%d", &pilihanOperasi);
+
+            if (pilihanOperasi == 1) {
                 system("cls");
-                tampilan();
-                displayKalkulator();
-                printf("Lakukan perhitungan :\n\n"); 
-                scanf("%s", input);    
-                strcpy(in, input);
-                InfixToPostfix(input, postfix);
-                printf("\n");
-                expTree = BuildExpressionTree(postfix);
-                printf("\n\n");
-                ShowInfoTree(expTree);
-                printf("\n\n");
-                printf("= %.2f\n", CalculationOfTree(expTree));
-                gcvt(CalculationOfTree(expTree), 50, hasil);
-                writeHistory(in, hasil);
-                printf("\n================\nBuka kalkulator lagi?(y/n)\ninput : ");
-                scanf(" %c", &loop);
-                break;
-            default:
+                printf("Pilih operasi:\n");
+                printf("1. Hitung luas persegi\n");
+                printf("2. Hitung luas persegi panjang\n");
+                printf("3. Hitung luas lingkaran\n");
+                printf("4. Hitung luas segitiga\n");
+                printf("5. Hitung luas jajargenjang\n");
+                printf("6. Hitung luas trapesium\n");
+                printf("7. Hitung luas layang-layang\n");
+                printf("8. Hitung luas belah ketupat\n");
+                printf("Pilihan: ");
+                int pilihan;
+                scanf("%d", &pilihan);
+
+                switch (pilihan) {
+                    case 1:
+                        sisi = getSisiFromUser();
+                        calculateAndDisplayLuasPersegi(sisi);
+                        break;
+                    case 2:
+                        panjang = getPanjangFromUser();
+                        lebar = getLebarFromUser();
+                        calculateAndDisplayLuasPersegiPanjang(panjang, lebar);
+                        break;
+                    case 3:
+                        radius = getRadiusFromUser();
+                        calculateAndDisplayLuasLingkaran(radius);
+                        break;
+                    case 4:
+                        alas = getAlasFromUser();
+                        tinggi = getTinggiFromUser();
+                        calculateAndDisplayLuasSegitiga(alas, tinggi);
+                        break;
+                    case 5:
+                        alas = getAlasFromUser();
+                        tinggi = getTinggiFromUser();
+                        calculateAndDisplayLuasJajargenjang(alas, tinggi);
+                        break;
+                    case 6:
+                        sisiSejajar1 = getSisiSejajar1FromUser();
+                        sisiSejajar2 = getSisiSejajar2FromUser();
+                        tinggi = getTinggiFromUser();
+                        calculateAndDisplayLuasTrapesium(sisiSejajar1, sisiSejajar2, tinggi);
+                        break;
+                    case 7:
+                        diagonal1 = getDiagonal1FromUser();
+                        diagonal2 = getDiagonal2FromUser();
+                        calculateAndDisplayLuasLayangLayang(diagonal1, diagonal2);
+                        break;
+                    case 8:
+                        diagonal1 = getDiagonal1FromUser();
+                        diagonal2 = getDiagonal2FromUser();
+                        calculateAndDisplayLuasBelahKetupat(diagonal1, diagonal2);
+                        break;
+                    default:
+                        printf("Pilihan tidak valid.\n");
+                }
+            } else if (pilihanOperasi == 2) {
+                // Tambahkan operasi keliling bangun datar di sini
+            } else if (pilihanOperasi == 3) {
+                // Tambahkan operasi volume bangun ruang di sini
+            } else if (pilihanOperasi == 4) {
+                // Tambahkan operasi luas permukaan bangun ruang di sini
+            } else {
                 printf("Pilihan tidak valid.\n");
+            }
+        } else if (pilihanGeometri == 2) {
+            system("cls");
+            tampilan();
+            displayKalkulator();
+            printf("Lakukan perhitungan :\n\n"); 
+            scanf("%s", input);    
+            strcpy(in, input);
+            InfixToPostfix(input, postfix);
+            printf("\n");
+            expTree = BuildExpressionTree(postfix);
+            printf("\n\n");
+            ShowInfoTree(expTree);
+            printf("\n\n");
+            printf("= %.2f\n", CalculationOfTree(expTree));
+            gcvt(CalculationOfTree(expTree), 50, hasil);
+            writeHistory(in, hasil);
+        } else {
+            printf("Pilihan tidak valid.\n");
         }
 
         printf("\n================\nBuka kalkulator lagi?(y/n)\ninput : ");
         scanf(" %c", &loop);
     }
 }
+
 
 
 /* Membuat sebuah ekspresi tree dari ekspresi postfix yang sudah didapatkan. 
