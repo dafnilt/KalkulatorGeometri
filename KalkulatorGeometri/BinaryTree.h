@@ -6,8 +6,7 @@
  *  Modifikasi: Fiora Berliana Putri
  * 	Tanggal   : 25 Juli 2021
  */
-#pragma once
-#pragma warning(disable: 4996)
+
 #ifndef BINTREE_H
 #define BINTREE_H
 

@@ -7,8 +7,7 @@
  *  Tanggal   : 25 Juli 2021
  */
 
-#pragma once
-#pragma warning(disable: 4996)
+
 #ifndef STACK_TREE_H
 #define STACK_TREE_H
 

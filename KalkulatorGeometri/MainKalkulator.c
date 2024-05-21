@@ -1,5 +1,3 @@
-#pragma once
-#pragma warning(disable: 4996)
 #include "KalkulatorTree.h"
 
 int main(){

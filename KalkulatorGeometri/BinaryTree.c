@@ -4,8 +4,7 @@
  *  Tanggal   : 21 Juli 2021
  * 	Tanggal Modifikasi : 31 Juli 2021 
  */
-#pragma once
-#pragma warning(disable: 4996)
+
 #include "BinaryTree.h"
 
 /* Return true jika ekspresi tree kosong dan sebaliknya */

@@ -1,5 +1,3 @@
-#pragma once
-#pragma warning(disable: 4996)
 #define PI 3.14159265359
 #include "LuasBangunDatar.h"
 

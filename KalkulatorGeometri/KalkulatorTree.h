@@ -6,8 +6,7 @@
  *  Modifikasi: Lamda Richo Vanjaya Sumaryadi
  *  Tanggal   : 25 Juli 2021
  */
-#pragma once
-#pragma warning(disable: 4996)
+
 #ifndef KALKULATOR_H
 #define KALKULATOR_H
 
@@ -80,8 +79,4 @@ void MainMenu(int *input);
  */
  
 void displayKalkulator();
-
-void writeHistory(String operasi, String hasil);
-void showHistory();
-void tampilan();
 #endif

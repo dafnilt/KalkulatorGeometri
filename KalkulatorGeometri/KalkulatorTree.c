@@ -6,8 +6,6 @@
  *  Modifikasi: Lamda Richo Vanjaya Sumaryadi
  *  Tanggal   : 25 Juli 2021 dan 31 Juli 2021
  */
-#pragma once
-#pragma warning(disable: 4996)
 #define PI 3.14159265359
 #include "KalkulatorTree.h"
 #include "LuasBangunDatar.h"
@@ -205,7 +203,7 @@ BinTree BuildExpressionTree(infotypeTree postfix){
 			
 			AddStackTree(&StackTree, ExpressionTree); 
 		}
-		i++;
+		i++;					
 	}
 	ExpressionTree = Info(Top(StackTree));
 	DellStackTree(&StackTree, &ExpressionTree);

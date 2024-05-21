@@ -6,8 +6,7 @@
  *  Modifikasi: Lamda Richo Vanjaya Sumaryadi
  *  Tanggal   : 25 Juli 2021
  */
-#pragma once
-#pragma warning(disable: 4996)
+
 #include "StackForTree.h"
 
 boolean isEmptyStackTree(StackTree S) {

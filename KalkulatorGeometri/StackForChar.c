@@ -6,8 +6,7 @@
  *  Modifikasi: Lamda Richo Vanjaya Sumaryadi
  *  Tanggal   : 25 Juli 2021
  */
-#pragma once
-#pragma warning(disable: 4996)
+ 
 #include "StackForChar.h"
 
 boolean isEmptyStackChar(StackChar S) {

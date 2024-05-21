@@ -1,5 +1,3 @@
-#pragma once
-#pragma warning(disable: 4996)
 #ifndef LUASBANGUNDATAR_H
 #define LUASBANGUNDATAR_H
 
