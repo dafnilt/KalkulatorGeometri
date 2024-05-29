@@ -3,33 +3,10 @@
 #include "VolumeBangunRuang.h"
 #include "KalkulatorTree.h"
 #include "BinaryTree.h"
+#include "input.h"
 
-float getInput(char* prompt) {
-    float value;
-    printf("%s", prompt);
-    scanf("%f", &value);
-    return value;
-}
 
-float getSisiDariPengguna() {
-    return getInput("Masukkan sisi: ");
-}
 
-float getTinggiDariPengguna() {
-    return getInput("Masukkan tinggi: ");
-}
-
-float getPanjangDariPengguna() {
-    return getInput("Masukkan panjang: ");
-}
-
-float getLebarDariPengguna() {
-    return getInput("Masukkan lebar: ");
-}
-
-float getJariJariDariPengguna() {
-    return getInput("Masukkan jari-jari: ");
-}
 
 void buatInfixDariKubus(float sisi, char* infix) {
     sprintf(infix, "%.2f*%.2f*%.2f", sisi, sisi, sisi);

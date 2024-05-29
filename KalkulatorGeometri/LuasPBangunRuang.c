@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "VolumeBangunRuang.h"
+#include "input.h"
 #include "KalkulatorTree.h"
 #include "BinaryTree.h"
 #include "LuasPBangunRuang.h"

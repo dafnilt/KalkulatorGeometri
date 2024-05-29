@@ -77,6 +77,8 @@ void MainMenu(int *input);
  * I.S. : Belum ada pilihan yang dipilih user.
  * F.S. : User meng-input pilihan.
  */
+
+void writeHistory(String operasi, String hasil);
  
 void displayKalkulator();
 #endif
