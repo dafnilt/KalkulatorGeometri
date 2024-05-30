@@ -61,6 +61,12 @@ void hitungDanTampilkanVolume(float nilai1, float nilai2, float nilai3, char* be
 
     expTree = buildTreeFromPostfix(postfix);
     float hasil = CalculationOfTree(expTree);
+    printf("\n\n");
+    ShowInfoTree(expTree);
+    printf("\n\n");
+    printf("= %.2f\n", hasil);
+
+    // Menampilkan luas permukaan yang telah dihitung
     printf("Volume %s adalah %.2f\n", bentuk, hasil);
 }
 

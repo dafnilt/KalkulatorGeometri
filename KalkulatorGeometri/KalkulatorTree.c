@@ -19,7 +19,7 @@
 
 void MenuKalkulator() {
     char loop = 'y';
-    int pilihanGeometri, pilihanOperasi;
+    int pilihanGeometri, pilihanOperasi, choice;
     float sisi, panjang, radius, lebar, jarijari, alas, tinggi, sisiSejajar1, sisiSejajar2, diagonal1, diagonal2, sisimiring, alaspen, alaspan, sisisama, sisi1, sisi2;
 
     BinTree expTree;
@@ -55,71 +55,69 @@ void MenuKalkulator() {
 	                switch (subPilihan1) {
 	                    case 1:
 	                        system("cls");
-	                        printf("Pilih bentuk yang ingin dihitung luasnya:\n");
-	                        printf("1. Persegi\n");
-	                        printf("2. Persegi Panjang\n");
-	                        printf("3. Lingkaran\n");
-	                        printf("4. Segitiga\n");
-	                        printf("5. Jajargenjang\n");
-	                        printf("6. Trapesium\n");
-	                        printf("7. Layang-layang\n");
-	                        printf("8. Belah ketupat\n");
-	                        printf("Masukkan pilihan: ");
-	                        int subPilihan2;
-	                        scanf("%d", &subPilihan2);
-	
-	                        switch (subPilihan2) {
-	                            case 1:
-	                                system("cls");
-	                                sisi = getSisiFromUser();
-	                                calculateAndDisplayLuasPersegi(sisi);
-	                                break;
-	                            case 2:
-	                                system("cls");
-	                                panjang = getPanjangFromUser();
-	                                lebar = getLebarFromUser();
-	                                calculateAndDisplayLuasPersegiPanjang(panjang, lebar);
-	                                break;
-	                            case 3:
-	                                system("cls");
-	                                radius = getRadiusFromUser();
-	                                calculateAndDisplayLuasLingkaran(radius);
-	                                break;
-	                            case 4:
-	                                system("cls");
-	                                alas = getAlasFromUser();
-	                                tinggi = getTinggiFromUser();
-	                                calculateAndDisplayLuasSegitiga(alas, tinggi);
-	                                break;
-	                            case 5:
-	                                system("cls");
-	                                alas = getAlasFromUser();
-	                                tinggi = getTinggiFromUser();
-	                                calculateAndDisplayLuasJajargenjang(alas, tinggi);
-	                                break;
-	                            case 6:
-	                                system("cls");
-	                                sisiSejajar1 = getSisiSejajar1FromUser();
-	                                sisiSejajar2 = getSisiSejajar2FromUser();
-	                                tinggi = getTinggiFromUser();
-	                                calculateAndDisplayLuasTrapesium(sisiSejajar1, sisiSejajar2, tinggi);
-	                                break;
-	                            case 7:
-	                                system("cls");
-	                                diagonal1 = getDiagonal1FromUser();
-	                                diagonal2 = getDiagonal2FromUser();
-	                                calculateAndDisplayLuasLayangLayang(diagonal1, diagonal2);
-	                                break;
-	                            case 8:
-	                                system("cls");
-	                                diagonal1 = getDiagonal1FromUser();
-	                                diagonal2 = getDiagonal2FromUser();
-	                                calculateAndDisplayLuasBelahKetupat(diagonal1, diagonal2);
-	                                break;
-	                            default:
-	                                printf("Pilihan tidak valid\n");
-	                                break;
-	                        }
+					        printf("Pilih bentuk bangun datar:\n");
+					        printf("1. Persegi\n");
+					        printf("2. Persegi Panjang\n");
+					        printf("3. Lingkaran\n");
+					        printf("4. Segitiga\n");
+					        printf("5. Jajargenjang\n");
+					        printf("6. Trapesium\n");
+					        printf("7. Layang-layang\n");
+					        printf("8. Belah Ketupat\n");
+					        printf("Masukkan pilihan: ");
+					        scanf("%d", &choice);
+					
+					        switch(choice) {
+					            case 1:
+					            	system("cls");
+					                sisi = getSisiDariPengguna();
+					                hitungDanTampilkanKeliling(sisi, 0, 0, "persegi");
+					                break;
+					            case 2:
+					            	system("cls");
+					                panjang = getPanjangDariPengguna();
+					                lebar = getLebarDariPengguna();
+					                hitungDanTampilkanKeliling(panjang, lebar, 0, "persegi panjang");
+					                break;
+					            case 3:
+					            	system("cls");
+					                jarijari = getJariJariDariPengguna();
+					                hitungDanTampilkanKeliling(jarijari, 0, 0, "lingkaran");
+					                break;
+					            case 4:
+					            	system("cls");
+					                alas = getAlasPanjangFromUser();
+					                tinggi = getTinggiDariPengguna();
+					                hitungDanTampilkanKeliling(alas, tinggi, 0, "segitiga");
+					                break;
+					            case 5:
+					            	system("cls");
+					                alas = getAlasPanjangFromUser();
+					                tinggi = getTinggiDariPengguna();
+					                hitungDanTampilkanKeliling(alas, tinggi, 0, "jajargenjang");
+					                break;
+					            case 6:
+					            	system("cls");
+					                sisiSejajar1 = getSisiSamaPanjangFromUser();
+					                sisiSejajar2 = getSisiSamaPanjangFromUser();
+					                tinggi = getTinggiDariPengguna();
+					                hitungDanTampilkanKeliling(sisiSejajar1, sisiSejajar2, tinggi, "trapesium");
+					                break;
+					            case 7:
+					            	system("cls");
+					                sisi1 = getSisiAFromUser();
+					                sisi2 = getSisiBFromUser();
+					                hitungDanTampilkanKeliling(sisi1, sisi2, 0, "layang-layang");
+					                break;
+					            case 8:
+					            	system("cls");
+					                diagonal1 = getDiagonal1FromUser();
+					                diagonal2 = getDiagonal2FromUser();
+					                hitungDanTampilkanKeliling(diagonal1, diagonal2, 0, "belah ketupat");
+					                break;
+					            default:
+					                printf("Pilihan tidak valid\n");
+					        }
 	                        break;
 	                    case 2:
 	                        system("cls");
@@ -131,6 +129,7 @@ void MenuKalkulator() {
 	                        printf("5. Trapesium\n");
 	                        printf("6. Layang-layang\n");
 	                        printf("7. Belah ketupat\n");
+	                        printf("8. Belah ketupat\n");
 	                        printf("Masukkan pilihan: ");
 	                        int subPilihan3;
 	                        scanf("%d", &subPilihan3);
@@ -138,19 +137,19 @@ void MenuKalkulator() {
 	                        switch (subPilihan3) {
 	                            case 1:
 	                                system("cls");
-	                                sisi = getSisiFromUser();
+	                                sisi = getSisiDariPengguna();
 	                                hitungDanTampilkanKeliling(sisi, 0, 0, "Persegi");
 	                                break;
 	                            case 2:
 	                                system("cls");
-	                                panjang = getPanjangFromUser();
-	                                lebar = getLebarFromUser();
+	                                panjang = getPanjangDariPengguna();
+	                                lebar = getLebarDariPengguna();
 	                                hitungDanTampilkanKeliling(panjang, lebar, 0, "persegiPanjang");
 	                                break;
 	                            case 3:
 	                                system("cls");
 	                                jarijari = getJariJariDariPengguna();
-	                                hitungDanTampilkanKeliling(radius, 0, 0, "lingkaran");
+	                                hitungDanTampilkanKeliling(jarijari, 0, 0, "lingkaran");
 	                                break;
 	                            case 4:
 	                                system("cls");
@@ -757,7 +756,7 @@ void displayKalkulator(){
 	{' ',179,' ',192,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,217,' ',179},
 	{' ',179,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',179},
 	{' ',179,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',179},
-	{' ',179,' ',179,' ','7',' ',179,' ',179,' ','8',' ',179,' ',179,' ','9',' ',179,' ',179,' ','/',' ',179,' ',179,' ','^',' ',179,' ',179,' ','%',' ',179,' ',179},
+	{' ',179,' ',179,' ','7',179,' ',179,' ','8',' ',179,' ',179,' ','9',' ',179,' ',179,' ','/',' ',179,' ',179,' ','^',' ',179,' ',179,' ','%',' ',179,' ',179},
 	{' ',179,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',179},
 	{' ',179,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',179},
 	{' ',179,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',179},

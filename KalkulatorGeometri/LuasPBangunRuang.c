@@ -5,12 +5,9 @@
 #include "BinaryTree.h"
 #include "LuasPBangunRuang.h"
 
-
-
 void buatInfixLuasPKubus(float sisi, char* infix) {
-    sprintf(infix, "6*%.2f*%.2f", sisi, sisi); // Ubah dari "%.2f*%.2f*6" menjadi "6*%.2f*%.2f"
+    sprintf(infix, "%.2f*%.2f*6", sisi, sisi); // Ubah dari "6*%.2f*%.2f" menjadi "%.2f*%.2f*6"
 }
-
 
 void buatInfixLuasPBalok(float panjang, float lebar, float tinggi, char* infix) {
     sprintf(infix, "(2*%.2f*%.2f) + (2*%.2f*%.2f) + (2*%.2f*%.2f)", panjang, lebar, panjang, tinggi, lebar, tinggi);
@@ -55,13 +52,19 @@ void hitungDanTampilkanLuasPermukaan(float nilai1, float nilai2, float nilai3, c
         return;
     }
 
-    printf("Infix: %s\n", infix);  // Debugging line
+    printf("Infix: %s\n", infix);  // Garis debugging
 
     InfixToPostfix(infix, postfix);
-    printf("Postfix: %s\n", postfix);  // Debugging line
+    printf("Postfix: %s\n", postfix);  // Garis debugging
 
     expTree = buildTreeFromPostfix(postfix);
     float hasil = CalculationOfTree(expTree);
+    printf("\n\n");
+    ShowInfoTree(expTree);
+    printf("\n\n");
+    printf("= %.2f\n", hasil);
+
+    // Menampilkan luas permukaan yang telah dihitung
     printf("Luas permukaan %s adalah %.2f\n", bentuk, hasil);
 }
 

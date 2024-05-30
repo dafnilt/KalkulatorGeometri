@@ -64,6 +64,10 @@ void hitungDanTampilkanKeliling(float nilai1, float nilai2, float nilai3, char* 
 
     expTree = buildTreeFromPostfix(postfix);
     float hasil = CalculationOfTree(expTree);
+    printf("\n\n");
+    ShowInfoTree(expTree);
+    printf("\n\n");
+    printf("= %.2f\n", hasil);
     printf("Keliling %s adalah %.2f\n", bentuk, hasil);
 }
 
