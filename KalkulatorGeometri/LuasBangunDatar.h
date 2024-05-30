@@ -13,46 +13,24 @@
 #include <math.h>
 #include <conio.h>
 
-// Function prototypes
-float getSisiFromUser();
-void createInfixFromSisi(float sisi, char* infix);
-void convertInfixToPostfix(const char* infix, char* postfix);
-BinTree buildTreeFromPostfix(const char* postfix);
-void calculateAndDisplayLuasPersegi(float sisi);
 
-float getPanjangFromUser();
-float getLebarFromUser();
-void createInfixFromPanjangLebar(float panjang, float lebar, char* infix);
+void buatInfixDariSisiPersegi(float sisi, char* infix) ;
 
-#endif 	
-void calculateAndDisplayLuasPersegiPanjang(float panjang, float lebar);
+void buatInfixDariPanjangLebarPersegiPanjang(float panjang, float lebar, char* infix) ;
 
-float getRadiusFromUser();
-void createInfixFromRadius(float radius, char* infix);
-void calculateAndDisplayLuasLingkaran(float radius);
+void buatInfixDariRadiusLingkaran(float radius, char* infix) ;
 
-float getAlasFromUser();
-float getTinggiFromUser();
-void createInfixFromAlasTinggi(float alas, float tinggi, char* infix);
-void calculateAndDisplayLuasSegitiga(float alas, float tinggi);
+void buatInfixDariAlasTinggiSegitiga(float alas, float tinggi, char* infix) ;
 
-void createInfixFromAlasTinggiJajargenjang(float alas, float tinggi, char* infix);
-void calculateAndDisplayLuasJajargenjang(float alas, float tinggi);
+void buatInfixDariAlasTinggiJajargenjang(float alas, float tinggi, char* infix) ;
 
-float getSisiSejajar1FromUser();
-float getSisiSejajar2FromUser();
-float getTinggiTrapesiumFromUser();
-void createInfixFromSisiSejajarTinggi(float sisiSejajar1, float sisiSejajar2, float tinggi, char* infix);
-void calculateAndDisplayLuasTrapesium(float sisiSejajar1, float sisiSejajar2, float tinggi);
+void buatInfixDariSisiSejajarTinggiTrapesium(float sisiSejajar1, float sisiSejajar2, float tinggi, char* infix);
 
-// Deklarasi fungsi-fungsi untuk layang-layang
-float getDiagonal1FromUser();
-float getDiagonal2FromUser();
-void createInfixFromLayangLayang(float diagonal1, float diagonal2, char* infix);
-void calculateAndDisplayLuasLayangLayang(float diagonal1, float diagonal2);
+void buatInfixDariDiagonalLayangLayang(float diagonal1, float diagonal2, char* infix);
 
-// Deklarasi fungsi-fungsi untuk belah ketupat
-void createInfixFromBelahKetupat(float diagonal1, float diagonal2, char* infix);
-void calculateAndDisplayLuasBelahKetupat(float diagonal1, float diagonal2);
+void buatInfixDariDiagonalBelahKetupat(float diagonal1, float diagonal2, char* infix);
 
+void hitungDanTampilkanLuas(float nilai1, float nilai2, float nilai3, char* bentuk);
+
+#endif
 

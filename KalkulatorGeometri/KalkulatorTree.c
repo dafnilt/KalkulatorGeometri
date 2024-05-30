@@ -9,14 +9,22 @@
 #define PI 3.14159265359
 #include "KalkulatorTree.h"
 #include "LuasBangunDatar.h"
+#include "input.h"
+#include "keliling.h"
+#include "LuasPBangunRuang.h"
+#include "VolumeBangunRuang.h"
+#include "massa.h"
+#include "panjang.h"
+#include "suhu.h"
+#include "volume.h"
 
 
 #include "LuasBangunDatar.h"
 
 void MenuKalkulator() {
     char loop = 'y';
-    int pilihanGeometri, pilihanOperasi;
-    float sisi, panjang, lebar, radius, alas, tinggi, sisiSejajar1, sisiSejajar2, diagonal1, diagonal2;
+    int pilihanGeometri, pilihanOperasi, choice;
+    float sisi, panjang, radius, lebar, jarijari, alas, tinggi, sisiSejajar1, sisiSejajar2, diagonal1, diagonal2, sisimiring, alaspen, alaspan, sisisama, sisi1, sisi2, alasj, tinggij;
 
     BinTree expTree;
     String postfix, input, hasil, in;
@@ -26,86 +34,290 @@ void MenuKalkulator() {
         printf("Pilih menu:\n");
         printf("1. Kalkulator Geometri\n");
         printf("2. Kalkulator Umum\n");
+        printf("3. Konversi Massa\n");
+        printf("4. Konversi Panjang\n");
+        printf("5. Konversi Suhu\n");
+        printf("6. Konversi Volume\n");
         printf("Pilihan: ");
         scanf("%d", &pilihanGeometri);
 
         if (pilihanGeometri == 1) {
             system("cls");
-            printf("Pilih jenis operasi:\n");
-            printf("1. Luas Bangun Datar\n");
-            printf("2. Keliling Bangun Datar\n");
-            printf("3. Volume Bangun Ruang\n");
-            printf("4. Luas Permukaan Bangun Ruang\n");
-            printf("Pilihan: ");
-            scanf("%d", &pilihanOperasi);
-
-            if (pilihanOperasi == 1) {
-                system("cls");
-                printf("Pilih operasi:\n");
-                printf("1. Hitung luas persegi\n");
-                printf("2. Hitung luas persegi panjang\n");
-                printf("3. Hitung luas lingkaran\n");
-                printf("4. Hitung luas segitiga\n");
-                printf("5. Hitung luas jajargenjang\n");
-                printf("6. Hitung luas trapesium\n");
-                printf("7. Hitung luas layang-layang\n");
-                printf("8. Hitung luas belah ketupat\n");
-                printf("Pilihan: ");
-                int pilihan;
-                scanf("%d", &pilihan);
-
-                switch (pilihan) {
-                    case 1:
-                        sisi = getSisiFromUser();
-                        calculateAndDisplayLuasPersegi(sisi);
-                        break;
-                    case 2:
-                        panjang = getPanjangFromUser();
-                        lebar = getLebarFromUser();
-                        calculateAndDisplayLuasPersegiPanjang(panjang, lebar);
-                        break;
-                    case 3:
-                        radius = getRadiusFromUser();
-                        calculateAndDisplayLuasLingkaran(radius);
-                        break;
-                    case 4:
-                        alas = getAlasFromUser();
-                        tinggi = getTinggiFromUser();
-                        calculateAndDisplayLuasSegitiga(alas, tinggi);
-                        break;
-                    case 5:
-                        alas = getAlasFromUser();
-                        tinggi = getTinggiFromUser();
-                        calculateAndDisplayLuasJajargenjang(alas, tinggi);
-                        break;
-                    case 6:
-                        sisiSejajar1 = getSisiSejajar1FromUser();
-                        sisiSejajar2 = getSisiSejajar2FromUser();
-                        tinggi = getTinggiFromUser();
-                        calculateAndDisplayLuasTrapesium(sisiSejajar1, sisiSejajar2, tinggi);
-                        break;
-                    case 7:
-                        diagonal1 = getDiagonal1FromUser();
-                        diagonal2 = getDiagonal2FromUser();
-                        calculateAndDisplayLuasLayangLayang(diagonal1, diagonal2);
-                        break;
-                    case 8:
-                        diagonal1 = getDiagonal1FromUser();
-                        diagonal2 = getDiagonal2FromUser();
-                        calculateAndDisplayLuasBelahKetupat(diagonal1, diagonal2);
-                        break;
-                    default:
-                        printf("Pilihan tidak valid.\n");
-                }
-            } else if (pilihanOperasi == 2) {
-                // Tambahkan operasi keliling bangun datar di sini
-            } else if (pilihanOperasi == 3) {
-                // Tambahkan operasi volume bangun ruang di sini
-            } else if (pilihanOperasi == 4) {
-                // Tambahkan operasi luas permukaan bangun ruang di sini
-            } else {
-                printf("Pilihan tidak valid.\n");
-            }
+	        printf("Pilih operasi:\n");
+	        printf("1. Bangun Datar\n");
+	        printf("2. Bangun Ruang\n");
+	        printf("Pilihan: ");
+	        int pilihan;
+	        scanf("%d", &pilihan);
+	
+	        switch (pilihan) {
+	            case 1:
+	                system("cls");
+	                printf("Pilih operasi bangun datar:\n");
+	                printf("1. Hitung luas\n");
+	                printf("2. Hitung keliling\n");
+	                printf("Pilihan: ");
+	                int subPilihan1;
+	                scanf("%d", &subPilihan1);
+	
+	                switch (subPilihan1) {
+	                    case 1:
+	                        system("cls");
+					        printf("Pilih bentuk bangun datar:\n");
+					        printf("1. Persegi\n");
+					        printf("2. Persegi Panjang\n");
+					        printf("3. Lingkaran\n");
+					        printf("4. Segitiga\n");
+					        printf("5. Jajargenjang\n");
+					        printf("6. Trapesium\n");
+					        printf("7. Layang-layang\n");
+					        printf("8. Belah Ketupat\n");		
+					        printf("Masukkan pilihan: ");
+					        scanf("%d", &choice);
+					
+					        switch(choice) {
+					            case 1:
+					            	system("cls");
+					                sisi = getSisiDariPengguna();
+					                hitungDanTampilkanLuas(sisi, 0, 0, "persegi");
+					                break;
+					            case 2:
+					            	system("cls");
+					                panjang = getPanjangDariPengguna();
+					                lebar = getLebarDariPengguna();
+					                hitungDanTampilkanLuas(panjang, lebar, 0, "persegi panjang");
+					                break;
+					            case 3:
+					            	system("cls");
+					                jarijari = getJariJariDariPengguna();
+					                hitungDanTampilkanLuas(jarijari, 0, 0, "lingkaran");
+					                break;
+					            case 4:
+					            	system("cls");
+					                alas = getAlasPanjangFromUser();
+					                tinggi = getTinggiDariPengguna();
+					                hitungDanTampilkanLuas(alas, tinggi, 0, "segitiga");
+					                break;
+					            case 5:
+					            	system("cls");
+					                alasj = getAlasJajargenjangFromUser();
+					                tinggij = getTinggiJajargenjangDariPengguna();
+					                hitungDanTampilkanLuas(alas, tinggi, 0, "jajargenjang");
+					                break;
+					            case 6:
+					            	system("cls");
+					                sisiSejajar1 = getSisiSamaPanjangFromUser();
+					                sisiSejajar2 = getSisiSamaPanjangFromUser();
+					                tinggi = getTinggiTrapesiumDariPengguna();
+					                hitungDanTampilkanLuas(sisiSejajar1, sisiSejajar2, tinggi, "trapesium");
+					                break;
+					            case 7:
+					            	system("cls");
+					                sisi1 = getSisiAFromUser();
+					                sisi2 = getSisiBFromUser();
+					                hitungDanTampilkanLuas(sisi1, sisi2, 0, "layang-layang");
+					                break;
+					            case 8:
+					            	system("cls");
+					                diagonal1 = getDiagonal1FromUser();
+					                diagonal2 = getDiagonal2FromUser();
+					                hitungDanTampilkanLuas(diagonal1, diagonal2, 0, "belah ketupat");
+					                break;
+					            default:
+					                printf("Pilihan tidak valid\n");
+					        }
+	                        break;
+	                    case 2:
+	                        system("cls");
+	                        printf("Pilih bentuk yang ingin dihitung kelilingnya:\n");
+	                        printf("1. Persegi\n");
+	                        printf("2. Persegi Panjang\n");
+	                        printf("3. Lingkaran\n");
+	                        printf("4. Jajargenjang\n");
+	                        printf("5. Trapesium\n");
+	                        printf("6. Layang-layang\n");
+	                        printf("7. Belah ketupat\n");
+	                        printf("8. Belah ketupat\n");
+	                        printf("Masukkan pilihan: ");
+	                        int subPilihan3;
+	                        scanf("%d", &subPilihan3);
+	
+	                        switch (subPilihan3) {
+	                            case 1:
+	                                system("cls");
+	                                sisi = getSisiDariPengguna();
+	                                hitungDanTampilkanKeliling(sisi, 0, 0, "Persegi");
+	                                break;
+	                            case 2:
+	                                system("cls");
+	                                panjang = getPanjangDariPengguna();
+	                                lebar = getLebarDariPengguna();
+	                                hitungDanTampilkanKeliling(panjang, lebar, 0, "persegiPanjang");
+	                                break;
+	                            case 3:
+	                                system("cls");
+	                                jarijari = getJariJariDariPengguna();
+	                                hitungDanTampilkanKeliling(jarijari, 0, 0, "lingkaran");
+	                                break;
+	                            case 4:
+	                                system("cls");
+	                                alas = getAlasFromUser();
+	                                sisimiring = getSisiMiringFromUser();
+	                                hitungDanTampilkanKeliling(alas, sisimiring, 0, "jajarGenjang");
+	                                break;
+	                            case 5:
+	                                system("cls");
+	                                sisisama = getSisiSamaPanjangFromUser();
+	                                alaspan = getAlasPanjangFromUser();
+	                                alaspen = getAlasPendekFromUser();
+	                                hitungDanTampilkanKeliling(sisisama, alaspan, alaspen, "trapesium");
+	                                break;
+	                            case 6:
+	                                system("cls");
+	                                sisi1 = getSisiAFromUser();
+	                                sisi2 = getSisiBFromUser();
+	                                hitungDanTampilkanKeliling(sisi1, sisi2, 0, "layangLayang");
+	                                break;
+	                            case 7:
+	                                system("cls");
+	                                sisi = getSisiDariPengguna();
+	                                hitungDanTampilkanKeliling(sisi, 0, 0, "belahKetupat");
+	                                break;
+	                            default:
+	                                printf("Pilihan tidak valid\n");
+	                                break;
+	                		}
+	                	default:
+	                    	printf("Pilihan tidak valid\n");
+	                        break;
+	                    }
+	                break;
+	            case 2:
+	                system("cls");
+	                printf("Pilih operasi bangun ruang:\n");
+	                printf("1. Hitung volume\n");
+	                printf("2. Hitung luas permukaan\n");
+	                printf("Pilihan: ");
+	                int subPilihan4;
+	                scanf("%d", &subPilihan4);
+	
+	                switch (subPilihan4) {
+	                    case 1:
+	                        system("cls");
+	                        printf("Pilih bentuk yang ingin dihitung volumenya:\n");
+	                        printf("1. Kubus\n");
+	                        printf("2. Balok\n");
+	                        printf("3. Limas Persegi\n");
+	                        printf("4. Prisma Segitiga\n");
+	                        printf("5. Bola\n");
+	                        printf("6. Tabung\n");
+	                        printf("Masukkan pilihan: ");
+	                        int subPilihan5;
+	                        scanf("%d", &subPilihan5);
+	
+	                        switch (subPilihan5) {
+	                            case 1:
+	                                system("cls");
+	                                sisi = getSisiDariPengguna();
+	                                hitungDanTampilkanVolume(sisi, 0, 0, "kubus");
+	                                break;
+	                            case 2:
+	                                system("cls");
+	                                panjang = getPanjangDariPengguna();
+	                                lebar = getLebarDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                hitungDanTampilkanVolume(panjang, lebar, tinggi, "balok");
+	                                break;
+	                            case 3:
+	                                system("cls");
+	                                float sisiAlas = getSisiDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                hitungDanTampilkanVolume(sisiAlas, tinggi, 0, "limasPersegi");
+	                                break;
+	                            case 4:
+	                                system("cls");
+	                                alas = getSisiDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                panjang = getPanjangDariPengguna();
+	                                hitungDanTampilkanVolume(alas, tinggi, panjang, "prismaSegitiga");
+	                                break;
+	                            case 5:
+	                                system("cls");
+	                                float jariJari = getJariJariDariPengguna();
+	                                hitungDanTampilkanVolume(jariJari, 0, 0, "bola");
+	                                break;
+	                            case 6:
+	                                system("cls");
+	                                jariJari = getJariJariDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                hitungDanTampilkanVolume(jariJari, tinggi, 0, "tabung");
+	                                break;
+	                            default:
+	                                printf("Pilihan tidak valid\n");
+	                                break;
+	                        }
+	                        break;
+	                    case 2:
+	                        system("cls");
+	                        printf("Pilih bentuk yang ingin dihitung luas permukaannya:\n");
+	                        printf("1. Kubus\n");
+	                        printf("2. Balok\n");
+	                        printf("3. Limas Persegi\n");
+	                        printf("4. Prisma Segitiga\n");
+	                        printf("5. Bola\n");
+	                        printf("6. Tabung\n");
+	                        printf("Masukkan pilihan: ");
+	                        int choose;
+	                        scanf("%d", &choose);
+	
+	                        switch (choose) {
+	                            case 1:
+	                                system("cls");
+	                                sisi = getSisiDariPengguna();
+	                                hitungDanTampilkanLuasPermukaan(sisi, 0, 0, "kubus");
+	                                break;
+	                            case 2:
+	                                system("cls");
+	                                panjang = getPanjangDariPengguna();
+	                                lebar = getLebarDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                hitungDanTampilkanLuasPermukaan(panjang, lebar, tinggi, "balok");
+	                                break;
+	                            case 3:
+	                                system("cls");
+	                                float sisiAlas = getSisiDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                hitungDanTampilkanLuasPermukaan(sisiAlas, tinggi, 0, "limasPersegi");
+	                                break;
+	                            case 4:
+	                                system("cls");
+	                                alas = getSisiDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                panjang = getPanjangDariPengguna();
+	                                hitungDanTampilkanLuasPermukaan(alas, tinggi, panjang, "prismaSegitiga");
+	                                break;
+	                            case 5:
+	                                system("cls");
+	                                float jariJari = getJariJariDariPengguna();
+	                                hitungDanTampilkanLuasPermukaan(jariJari, 0, 0, "bola");
+	                                break;
+	                            case 6:
+	                                system("cls");
+	                                jariJari = getJariJariDariPengguna();
+	                                tinggi = getTinggiDariPengguna();
+	                                hitungDanTampilkanLuasPermukaan(jariJari, tinggi, 0, "tabung");
+	                                break;
+	                            default:
+	                                printf("Pilihan tidak valid\n");
+	                                break;
+	                        }
+	                        break;
+	                    default:
+	                        printf("Pilihan tidak valid\n");
+	                        break;
+	                }
+	                break;
+	            }
         } else if (pilihanGeometri == 2) {
             system("cls");
             tampilan();
@@ -122,6 +334,18 @@ void MenuKalkulator() {
             printf("= %.2f\n", CalculationOfTree(expTree));
             gcvt(CalculationOfTree(expTree), 50, hasil);
             writeHistory(in, hasil);
+        } else if (pilihanGeometri == 3) {
+            system("cls");
+            mainMassa();
+        } else if (pilihanGeometri == 4) {
+            system("cls");
+            mainPanjang();
+        } else if (pilihanGeometri == 3) {
+            system("cls");
+            mainSuhu();
+        } else if (pilihanGeometri == 3) {
+            system("cls");
+            mainVolume();
         } else {
             printf("Pilihan tidak valid.\n");
         }
@@ -552,7 +776,7 @@ void displayKalkulator(){
 	{' ',179,' ',192,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,217,' ',179},
 	{' ',179,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',179},
 	{' ',179,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',179},
-	{' ',179,' ',179,' ','7',' ',179,' ',179,' ','8',' ',179,' ',179,' ','9',' ',179,' ',179,' ','/',' ',179,' ',179,' ','^',' ',179,' ',179,' ','%',' ',179,' ',179},
+	{' ',179,' ',179,' ','7',179,' ',179,' ','8',' ',179,' ',179,' ','9',' ',179,' ',179,' ','/',' ',179,' ',179,' ','^',' ',179,' ',179,' ','%',' ',179,' ',179},
 	{' ',179,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',192,196,196,196,217,' ',179},
 	{' ',179,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',179},
 	{' ',179,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',218,196,196,196,191,' ',179},

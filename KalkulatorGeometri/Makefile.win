@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = BinaryTree.o KalkulatorTree.o StackForChar.o StackForTree.o MainKalkulator.o LuasBangunDatar.o
-LINKOBJ  = BinaryTree.o KalkulatorTree.o StackForChar.o StackForTree.o MainKalkulator.o LuasBangunDatar.o
+OBJ      = BinaryTree.o KalkulatorTree.o StackForChar.o StackForTree.o MainKalkulator.o LuasBangunDatar.o input.o VolumeBangunRuang.o keliling.o LuasPBangunRuang.o suhu.o massa.o panjang.o volume.o cobaui.o
+LINKOBJ  = BinaryTree.o KalkulatorTree.o StackForChar.o StackForTree.o MainKalkulator.o LuasBangunDatar.o input.o VolumeBangunRuang.o keliling.o LuasPBangunRuang.o suhu.o massa.o panjang.o volume.o cobaui.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -41,3 +41,30 @@ MainKalkulator.o: MainKalkulator.c
 
 LuasBangunDatar.o: LuasBangunDatar.c
 	$(CC) -c LuasBangunDatar.c -o LuasBangunDatar.o $(CFLAGS)
+
+input.o: input.c
+	$(CC) -c input.c -o input.o $(CFLAGS)
+
+VolumeBangunRuang.o: VolumeBangunRuang.c
+	$(CC) -c VolumeBangunRuang.c -o VolumeBangunRuang.o $(CFLAGS)
+
+keliling.o: keliling.c
+	$(CC) -c keliling.c -o keliling.o $(CFLAGS)
+
+LuasPBangunRuang.o: LuasPBangunRuang.c
+	$(CC) -c LuasPBangunRuang.c -o LuasPBangunRuang.o $(CFLAGS)
+
+suhu.o: suhu.c
+	$(CC) -c suhu.c -o suhu.o $(CFLAGS)
+
+massa.o: massa.c
+	$(CC) -c massa.c -o massa.o $(CFLAGS)
+
+panjang.o: panjang.c
+	$(CC) -c panjang.c -o panjang.o $(CFLAGS)
+
+volume.o: volume.c
+	$(CC) -c volume.c -o volume.o $(CFLAGS)
+
+cobaui.o: cobaui.c
+	$(CC) -c cobaui.c -o cobaui.o $(CFLAGS)
