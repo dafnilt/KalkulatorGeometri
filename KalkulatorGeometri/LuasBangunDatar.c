@@ -8,35 +8,35 @@
 #define PI 3.14159265359
 
 void buatInfixDariSisiPersegi(float sisi, char* infix) {
-    sprintf(infix, "%.2f*%.2f", sisi, sisi);  // Area formula for square
+    sprintf(infix, "%.2f*%.2f", sisi, sisi);
 }
 
 void buatInfixDariPanjangLebarPersegiPanjang(float panjang, float lebar, char* infix) {
-    sprintf(infix, "%.2f*%.2f", panjang, lebar);  // Area formula for rectangle
+    sprintf(infix, "%.2f*%.2f", panjang, lebar);
 }
 
 void buatInfixDariRadiusLingkaran(float radius, char* infix) {
-    sprintf(infix, "%.2f*%.2f^2", PI, radius);  // Area formula for circle
+    sprintf(infix, "%.2f*%.2f^2", PI, radius);
 }
 
 void buatInfixDariAlasTinggiSegitiga(float alas, float tinggi, char* infix) {
-    sprintf(infix, "(0.5)*%.2f*%.2f", alas, tinggi);  // Area formula for triangle
+    sprintf(infix, "(0.5)*%.2f*%.2f", alas, tinggi);
 }
 
 void buatInfixDariAlasTinggiJajargenjang(float alas, float tinggi, char* infix) {
-    sprintf(infix, "%.2f*%.2f", alas, tinggi);  // Area formula for parallelogram
+    sprintf(infix, "%.2f*%.2f", alas, tinggi);
 }
 
 void buatInfixDariSisiSejajarTinggiTrapesium(float sisiSejajar1, float sisiSejajar2, float tinggi, char* infix) {
-    sprintf(infix, "0.5*(%.2f+%.2f)*%.2f", sisiSejajar1, sisiSejajar2, tinggi);  // Area formula for trapezoid
+    sprintf(infix, "0.5*(%.2f+%.2f)*%.2f", sisiSejajar1, sisiSejajar2, tinggi);
 }
 
 void buatInfixDariDiagonalLayangLayang(float diagonal1, float diagonal2, char* infix) {
-    sprintf(infix, "(0.5)*%.2f*%.2f", diagonal1, diagonal2);  // Area formula for kite
+    sprintf(infix, "(0.5)*%.2f*%.2f", diagonal1, diagonal2);
 }
 
 void buatInfixDariDiagonalBelahKetupat(float diagonal1, float diagonal2, char* infix) {
-    sprintf(infix, "(0.5)*%.2f*%.2f", diagonal1, diagonal2);  // Area formula for rhombus
+    sprintf(infix, "(0.5)*%.2f*%.2f", diagonal1, diagonal2);
 }
 
 void hitungDanTampilkanLuas(float nilai1, float nilai2, float nilai3, char* bentuk) {
@@ -77,5 +77,3 @@ void hitungDanTampilkanLuas(float nilai1, float nilai2, float nilai3, char* bent
     printf("= %.2f\n", hasil);
     printf("Luas %s adalah %.2f\n", bentuk, hasil);
 }
-
-

@@ -71,49 +71,49 @@ void MenuKalkulator() {
 					            case 1:
 					            	system("cls");
 					                sisi = getSisiDariPengguna();
-					                hitungDanTampilkanKeliling(sisi, 0, 0, "persegi");
+					                hitungDanTampilkanLuas(sisi, 0, 0, "persegi");
 					                break;
 					            case 2:
 					            	system("cls");
 					                panjang = getPanjangDariPengguna();
 					                lebar = getLebarDariPengguna();
-					                hitungDanTampilkanKeliling(panjang, lebar, 0, "persegi panjang");
+					                hitungDanTampilkanLuas(panjang, lebar, 0, "persegi panjang");
 					                break;
 					            case 3:
 					            	system("cls");
 					                jarijari = getJariJariDariPengguna();
-					                hitungDanTampilkanKeliling(jarijari, 0, 0, "lingkaran");
+					                hitungDanTampilkanLuas(jarijari, 0, 0, "lingkaran");
 					                break;
 					            case 4:
 					            	system("cls");
 					                alas = getAlasPanjangFromUser();
 					                tinggi = getTinggiDariPengguna();
-					                hitungDanTampilkanKeliling(alas, tinggi, 0, "segitiga");
+					                hitungDanTampilkanLuas(alas, tinggi, 0, "segitiga");
 					                break;
 					            case 5:
 					            	system("cls");
 					                alas = getAlasPanjangFromUser();
 					                tinggi = getTinggiDariPengguna();
-					                hitungDanTampilkanKeliling(alas, tinggi, 0, "jajargenjang");
+					                hitungDanTampilkanLuas(alas, tinggi, 0, "jajargenjang");
 					                break;
 					            case 6:
 					            	system("cls");
 					                sisiSejajar1 = getSisiSamaPanjangFromUser();
 					                sisiSejajar2 = getSisiSamaPanjangFromUser();
 					                tinggi = getTinggiDariPengguna();
-					                hitungDanTampilkanKeliling(sisiSejajar1, sisiSejajar2, tinggi, "trapesium");
+					                hitungDanTampilkanLuas(sisiSejajar1, sisiSejajar2, tinggi, "trapesium");
 					                break;
 					            case 7:
 					            	system("cls");
 					                sisi1 = getSisiAFromUser();
 					                sisi2 = getSisiBFromUser();
-					                hitungDanTampilkanKeliling(sisi1, sisi2, 0, "layang-layang");
+					                hitungDanTampilkanLuas(sisi1, sisi2, 0, "layang-layang");
 					                break;
 					            case 8:
 					            	system("cls");
 					                diagonal1 = getDiagonal1FromUser();
 					                diagonal2 = getDiagonal2FromUser();
-					                hitungDanTampilkanKeliling(diagonal1, diagonal2, 0, "belah ketupat");
+					                hitungDanTampilkanLuas(diagonal1, diagonal2, 0, "belah ketupat");
 					                break;
 					            default:
 					                printf("Pilihan tidak valid\n");
