@@ -35,8 +35,8 @@ void buatInfixDariDiagonalLayangLayang(float diagonal1, float diagonal2, char* i
     sprintf(infix, "(0.5)*%.2f*%.2f", diagonal1, diagonal2);
 }
 
-void buatInfixDariDiagonalBelahKetupat(float diagonal1, float diagonal2, char* infix) {
-    sprintf(infix, "(0.5)*%.2f*%.2f", diagonal1, diagonal2);
+void buatInfixLuasBelahKetupat(float diagonal1, float diagonal2, char* infix) {
+    sprintf(infix, "(%.2f*%.2f)/2", diagonal1, diagonal2);
 }
 
 void hitungDanTampilkanLuas(float nilai1, float nilai2, float nilai3, char* bentuk) {
@@ -59,7 +59,7 @@ void hitungDanTampilkanLuas(float nilai1, float nilai2, float nilai3, char* bent
     } else if (strcmp(bentuk, "layang-layang") == 0) {
         buatInfixDariDiagonalLayangLayang(nilai1, nilai2, infix);
     } else if (strcmp(bentuk, "belah ketupat") == 0) {
-        buatInfixDariDiagonalBelahKetupat(nilai1, nilai2, infix);        
+        buatInfixLuasBelahKetupat(nilai1, nilai2, infix);        
     } else {
         printf("Bentuk tidak dikenali\n");
         return;

@@ -13,6 +13,10 @@
 #include "keliling.h"
 #include "LuasPBangunRuang.h"
 #include "VolumeBangunRuang.h"
+#include "massa.h"
+#include "panjang.h"
+#include "suhu.h"
+#include "volume.h"
 
 
 #include "LuasBangunDatar.h"
@@ -20,7 +24,7 @@
 void MenuKalkulator() {
     char loop = 'y';
     int pilihanGeometri, pilihanOperasi, choice;
-    float sisi, panjang, radius, lebar, jarijari, alas, tinggi, sisiSejajar1, sisiSejajar2, diagonal1, diagonal2, sisimiring, alaspen, alaspan, sisisama, sisi1, sisi2;
+    float sisi, panjang, radius, lebar, jarijari, alas, tinggi, sisiSejajar1, sisiSejajar2, diagonal1, diagonal2, sisimiring, alaspen, alaspan, sisisama, sisi1, sisi2, alasj, tinggij;
 
     BinTree expTree;
     String postfix, input, hasil, in;
@@ -30,6 +34,10 @@ void MenuKalkulator() {
         printf("Pilih menu:\n");
         printf("1. Kalkulator Geometri\n");
         printf("2. Kalkulator Umum\n");
+        printf("3. Konversi Massa\n");
+        printf("4. Konversi Panjang\n");
+        printf("5. Konversi Suhu\n");
+        printf("6. Konversi Volume\n");
         printf("Pilihan: ");
         scanf("%d", &pilihanGeometri);
 
@@ -63,7 +71,7 @@ void MenuKalkulator() {
 					        printf("5. Jajargenjang\n");
 					        printf("6. Trapesium\n");
 					        printf("7. Layang-layang\n");
-					        printf("8. Belah Ketupat\n");
+					        printf("8. Belah Ketupat\n");		
 					        printf("Masukkan pilihan: ");
 					        scanf("%d", &choice);
 					
@@ -92,15 +100,15 @@ void MenuKalkulator() {
 					                break;
 					            case 5:
 					            	system("cls");
-					                alas = getAlasPanjangFromUser();
-					                tinggi = getTinggiDariPengguna();
+					                alasj = getAlasJajargenjangFromUser();
+					                tinggij = getTinggiJajargenjangDariPengguna();
 					                hitungDanTampilkanLuas(alas, tinggi, 0, "jajargenjang");
 					                break;
 					            case 6:
 					            	system("cls");
 					                sisiSejajar1 = getSisiSamaPanjangFromUser();
 					                sisiSejajar2 = getSisiSamaPanjangFromUser();
-					                tinggi = getTinggiDariPengguna();
+					                tinggi = getTinggiTrapesiumDariPengguna();
 					                hitungDanTampilkanLuas(sisiSejajar1, sisiSejajar2, tinggi, "trapesium");
 					                break;
 					            case 7:
@@ -153,7 +161,7 @@ void MenuKalkulator() {
 	                                break;
 	                            case 4:
 	                                system("cls");
-	                                alas = getAlasFromUser();
+	                                alas = getAlasJajargenjangFromUser();
 	                                sisimiring = getSisiMiringFromUser();
 	                                hitungDanTampilkanKeliling(alas, sisimiring, 0, "jajarGenjang");
 	                                break;
@@ -172,8 +180,8 @@ void MenuKalkulator() {
 	                                break;
 	                            case 7:
 	                                system("cls");
-	                                sisi = getSisiDariPengguna();
-	                                hitungDanTampilkanKeliling(sisi, 0, 0, "belahKetupat");
+									                sisi = getSisiDariPengguna();
+									                hitungDanTampilkanLuas(sisi, 0, 0, "belah ketupat");
 	                                break;
 	                            default:
 	                                printf("Pilihan tidak valid\n");
@@ -326,6 +334,18 @@ void MenuKalkulator() {
             printf("= %.2f\n", CalculationOfTree(expTree));
             gcvt(CalculationOfTree(expTree), 50, hasil);
             writeHistory(in, hasil);
+        } else if (pilihanGeometri == 3) {
+            system("cls");
+            mainMassa();
+        } else if (pilihanGeometri == 4) {
+            system("cls");
+            mainPanjang();
+        } else if (pilihanGeometri == 3) {
+            system("cls");
+            mainSuhu();
+        } else if (pilihanGeometri == 3) {
+            system("cls");
+            mainVolume();
         } else {
             printf("Pilihan tidak valid.\n");
         }

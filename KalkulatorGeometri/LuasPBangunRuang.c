@@ -6,19 +6,19 @@
 #include "LuasPBangunRuang.h"
 
 void buatInfixLuasPKubus(float sisi, char* infix) {
-    sprintf(infix, "%.2f*%.2f*6", sisi, sisi); // Ubah dari "6*%.2f*%.2f" menjadi "%.2f*%.2f*6"
+    sprintf(infix, "6*%.2f*%.2f", sisi, sisi);
 }
 
 void buatInfixLuasPBalok(float panjang, float lebar, float tinggi, char* infix) {
-    sprintf(infix, "(2*%.2f*%.2f) + (2*%.2f*%.2f) + (2*%.2f*%.2f)", panjang, lebar, panjang, tinggi, lebar, tinggi);
+    sprintf(infix, "2*(%.2f*%.2f + %.2f*%.2f + %.2f*%.2f)", panjang, lebar, panjang, tinggi, lebar, tinggi);
 }
 
 void buatInfixLuasPLimasPersegi(float sisiAlas, float tinggi, char* infix) {
-    sprintf(infix, "(%.2f*%.2f*4) + (0.5*%.2f*%.2f*4)", sisiAlas, sisiAlas, sisiAlas, tinggi);
+    sprintf(infix, "%.2f*%.2f + 4*(%.2f*%.2f)/2", sisiAlas, sisiAlas, sisiAlas, tinggi);
 }
 
 void buatInfixLuasPPrismaSegitiga(float alas, float tinggi, float panjang, char* infix) {
-    sprintf(infix, "(%.2f*%.2f) + (0.5*%.2f*%.2f*3)", alas, panjang, alas, tinggi);
+    sprintf(infix, "%.2f*%.2f + 2*(%.2f*%.2f + %.2f*%.2f)/2", alas, tinggi, alas, panjang, tinggi, panjang);
 }
 
 void buatInfixLuasPBola(float jariJari, char* infix) {
@@ -26,7 +26,7 @@ void buatInfixLuasPBola(float jariJari, char* infix) {
 }
 
 void buatInfixLuasPTabung(float jariJari, float tinggi, char* infix) {
-    sprintf(infix, "2*3.14159*%.2f*%.2f + (2*3.14159*%.2f*%.2f)", jariJari, tinggi, jariJari, jariJari);
+    sprintf(infix, "2*3.14159*%.2f*(%.2f + %.2f)", jariJari, jariJari, tinggi);
 }
 
 // Fungsi untuk menghitung dan menampilkan luas permukaan bangun ruang

@@ -28,7 +28,7 @@ void buatInfixDariSisiSejajarTinggiTrapesium(float sisiSejajar1, float sisiSejaj
 
 void buatInfixDariDiagonalLayangLayang(float diagonal1, float diagonal2, char* infix);
 
-void buatInfixDariDiagonalBelahKetupat(float diagonal1, float diagonal2, char* infix);
+void buatInfixLuasBelahKetupat(float diagonal1, float diagonal2, char* infix);
 
 void hitungDanTampilkanLuas(float nilai1, float nilai2, float nilai3, char* bentuk);
 

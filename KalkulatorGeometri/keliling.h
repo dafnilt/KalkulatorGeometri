@@ -14,6 +14,7 @@ void buatInfixDariKelilingBelahKetupat(float sisi, char* infix);
 void buatInfixDariKelilingLayangLayang(float sisiA, float sisiB, char* infix);
 void buatInfixDariKelilingTrapesium(float sisisamapanjang, float alaspanjang, float alaspendek, char* infix);
 void buatInfixDariKelilingLingkaran(float jariJari, char* infix);
+void buatInfixDariKelilingSegitiga(float sisi1, float sisi2, float sisi3, char* infix);
 
 void hitungDanTampilkanKeliling(float nilai1, float nilai2, float nilai3, char* bentuk);
 
